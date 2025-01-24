@@ -1,0 +1,73 @@
+{
+  "name": "awp-helper",
+  "displayName": "AWP.GG Helper",
+  "description": "Execute Lua scripts through AWP's WebSocket Library",
+  "version": "1.0.0",
+  "icon": "/assets/logo.png",
+  "publisher": "monte-h8r",
+  "preview": true,
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:awpserver.initialized",
+    "onCommand:awpserver.activate",
+    "onCommand:awpserver.execute",
+    "onLanguage:lua",
+    "onLanguage:Luau"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "awpserver.activate",
+        "title": "Activate WebSocket Server"
+      },
+      {
+        "command": "awpserver.execute",
+        "title": "Execute Script via WebSocket"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "AWP.GG Helper Configuration",
+      "properties": {
+        "awpHelper.executeOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable Execute on Save"
+        }
+      }
+    }
+  },
+
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0"
+  },
+  "dependencies": {
+    "websocket": "^1.0.34",
+    "websockets": "^0.2.0"
+  },
+  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/disownh8r/awp-helper"
+  }
+}
